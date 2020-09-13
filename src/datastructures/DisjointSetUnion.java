@@ -5,13 +5,16 @@ package datastructures;
  *
  * https://e-maxx.ru/algo/dsu
  */
-public class DSU {
+public class DisjointSetUnion {
     private final int[] parent;
     private final int[] size;
 
-    public DSU(int n) {
+    public DisjointSetUnion(int n) {
         this.parent = new int[n];
         this.size = new int[n];
+        for (int i = 0; i < n; i++) {
+            makeSet(i);
+        }
     }
 
     void makeSet(int v) {
@@ -43,7 +46,7 @@ public class DSU {
 
     public static void main(String[] args) {
         int n = 10;
-        DSU dsu = new DSU(n);
+        DisjointSetUnion dsu = new DisjointSetUnion(n);
         for (int i = 0; i < n; i++) {
             dsu.makeSet(i);
         }
@@ -52,7 +55,6 @@ public class DSU {
         dsu.unionSet(3, 4);
         dsu.unionSet(6, 7);
         dsu.unionSet(2, 4);
-        System.out.println("asdf");
     }
 }
 
